@@ -1,0 +1,2124 @@
+fileFormatVersion: 2
+guid: cda41b8c84b8aab4eafa70e3cf264585
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7694424339277257717
+    second: Espio Sprite Sheet_0
+  - first:
+      213: 6863924024927656552
+    second: Espio Sprite Sheet_1
+  - first:
+      213: 4658007781803097656
+    second: Espio Sprite Sheet_2
+  - first:
+      213: -3898163036805536117
+    second: Espio Sprite Sheet_3
+  - first:
+      213: 8716292352400463357
+    second: Espio Sprite Sheet_4
+  - first:
+      213: -2517476503613482987
+    second: Espio Sprite Sheet_5
+  - first:
+      213: 2544425173035723290
+    second: Espio Sprite Sheet_6
+  - first:
+      213: 6035094764655207640
+    second: Espio Sprite Sheet_7
+  - first:
+      213: 1903458843023175883
+    second: Espio Sprite Sheet_8
+  - first:
+      213: 5242157033889059593
+    second: Espio Sprite Sheet_9
+  - first:
+      213: 5586502582627836143
+    second: Espio Sprite Sheet_10
+  - first:
+      213: 8042845591037321346
+    second: Espio Sprite Sheet_11
+  - first:
+      213: -8159395232698792361
+    second: Espio Sprite Sheet_12
+  - first:
+      213: 7242377794573053841
+    second: Espio Sprite Sheet_13
+  - first:
+      213: 7331577625049319913
+    second: Espio Sprite Sheet_14
+  - first:
+      213: -770651187263209209
+    second: Espio Sprite Sheet_15
+  - first:
+      213: 5951461669376189515
+    second: Espio Sprite Sheet_16
+  - first:
+      213: -1271961772208480604
+    second: Espio Sprite Sheet_17
+  - first:
+      213: -6612193604801871773
+    second: Espio Sprite Sheet_18
+  - first:
+      213: -3410634952649992073
+    second: Espio Sprite Sheet_19
+  - first:
+      213: -887722268727979453
+    second: Espio Sprite Sheet_20
+  - first:
+      213: -1154339115309757163
+    second: Espio Sprite Sheet_21
+  - first:
+      213: 6894598997054810181
+    second: Espio Sprite Sheet_22
+  - first:
+      213: 2080013597488831498
+    second: Espio Sprite Sheet_23
+  - first:
+      213: -9078372292588751625
+    second: Espio Sprite Sheet_24
+  - first:
+      213: 415091608917159794
+    second: Espio Sprite Sheet_25
+  - first:
+      213: 7360912134436103778
+    second: Espio Sprite Sheet_26
+  - first:
+      213: 3796884948994115058
+    second: Espio Sprite Sheet_27
+  - first:
+      213: -8043797962202003104
+    second: Espio Sprite Sheet_28
+  - first:
+      213: 3131053533399579288
+    second: Espio Sprite Sheet_29
+  - first:
+      213: 8462113067920285210
+    second: Espio Sprite Sheet_30
+  - first:
+      213: -315063910280680591
+    second: Espio Sprite Sheet_31
+  - first:
+      213: 8657409499809047937
+    second: Espio Sprite Sheet_32
+  - first:
+      213: -5477301288406791822
+    second: Espio Sprite Sheet_33
+  - first:
+      213: 8316874423306329346
+    second: Espio Sprite Sheet_34
+  - first:
+      213: -3450025005525760032
+    second: Espio Sprite Sheet_35
+  - first:
+      213: 8436704975921537384
+    second: Espio Sprite Sheet_36
+  - first:
+      213: 5651402457797544417
+    second: Espio Sprite Sheet_37
+  - first:
+      213: -4001031098494136971
+    second: Espio Sprite Sheet_38
+  - first:
+      213: 2846045398276308982
+    second: Espio Sprite Sheet_39
+  - first:
+      213: 4365544081104906338
+    second: Espio Sprite Sheet_40
+  - first:
+      213: 4072200146174361878
+    second: Espio Sprite Sheet_41
+  - first:
+      213: 4286968699392984541
+    second: Espio Sprite Sheet_42
+  - first:
+      213: 6590825116769994888
+    second: Espio Sprite Sheet_43
+  - first:
+      213: -4470371467874693789
+    second: Espio Sprite Sheet_44
+  - first:
+      213: 577036418214838081
+    second: Espio Sprite Sheet_45
+  - first:
+      213: 6971312471002683951
+    second: Espio Sprite Sheet_46
+  - first:
+      213: -6326967559973376118
+    second: Espio Sprite Sheet_47
+  - first:
+      213: -5635656690226138133
+    second: Espio Sprite Sheet_48
+  - first:
+      213: 3785164029935867664
+    second: Espio Sprite Sheet_49
+  - first:
+      213: -4631008089102968571
+    second: Espio Sprite Sheet_50
+  - first:
+      213: 3369191702918765096
+    second: Espio Sprite Sheet_51
+  - first:
+      213: 8929379779571711340
+    second: Espio Sprite Sheet_52
+  - first:
+      213: 3304998608363794438
+    second: Espio Sprite Sheet_53
+  - first:
+      213: 1791856910526755495
+    second: Espio Sprite Sheet_54
+  - first:
+      213: -3325223518017032314
+    second: Espio Sprite Sheet_55
+  - first:
+      213: 3560269758445589103
+    second: Espio Sprite Sheet_56
+  - first:
+      213: 1702225511215839731
+    second: Espio Sprite Sheet_57
+  - first:
+      213: 8789410253164371006
+    second: Espio Sprite Sheet_58
+  - first:
+      213: -2368278835744321264
+    second: Espio Sprite Sheet_59
+  - first:
+      213: 1989859049820376206
+    second: Espio Sprite Sheet_60
+  - first:
+      213: -1813163612606013085
+    second: Espio Sprite Sheet_61
+  - first:
+      213: -590217728851256601
+    second: Espio Sprite Sheet_62
+  - first:
+      213: -4633629312733999126
+    second: Espio Sprite Sheet_63
+  - first:
+      213: -215717895828572283
+    second: Espio Sprite Sheet_64
+  - first:
+      213: 1834568406414192463
+    second: Espio Sprite Sheet_65
+  - first:
+      213: -3485572039911703967
+    second: Espio Sprite Sheet_66
+  - first:
+      213: 8986860925030415462
+    second: Espio Sprite Sheet_67
+  - first:
+      213: -7123269282990901539
+    second: Espio Sprite Sheet_68
+  - first:
+      213: -3564623177023069068
+    second: Espio Sprite Sheet_69
+  - first:
+      213: -457520546173525127
+    second: Espio Sprite Sheet_70
+  - first:
+      213: 6590243367732172182
+    second: Espio Sprite Sheet_71
+  - first:
+      213: -949900363877507373
+    second: Espio Sprite Sheet_72
+  - first:
+      213: -183651202224776498
+    second: Espio Sprite Sheet_73
+  - first:
+      213: -1705713460473842808
+    second: Espio Sprite Sheet_74
+  - first:
+      213: -2151500526367220718
+    second: Espio Sprite Sheet_75
+  - first:
+      213: -1280836475974474995
+    second: Espio Sprite Sheet_76
+  - first:
+      213: 3022095172051155417
+    second: Espio Sprite Sheet_77
+  - first:
+      213: -4734886333114684719
+    second: Espio Sprite Sheet_78
+  - first:
+      213: 1499044787307792453
+    second: Espio Sprite Sheet_79
+  - first:
+      213: -2360434101600693933
+    second: Espio Sprite Sheet_80
+  - first:
+      213: -1859929285213723711
+    second: Espio Sprite Sheet_81
+  - first:
+      213: -2365648841306752816
+    second: Espio Sprite Sheet_82
+  - first:
+      213: 4618254946798978110
+    second: Espio Sprite Sheet_83
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 16
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 467
+        width: 28
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fb9db57b2618ca60800000000000000
+      internalID: 7694424339277257717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 466
+        width: 29
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86a1517b88e814f50800000000000000
+      internalID: 6863924024927656552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 467
+        width: 25
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83ef06bf56194a040800000000000000
+      internalID: 4658007781803097656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 467
+        width: 25
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b86e5a21f51f6e9c0800000000000000
+      internalID: -3898163036805536117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 467
+        width: 33
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df5984fa6bd76f870800000000000000
+      internalID: 8716292352400463357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 467
+        width: 42
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 518d9b74570201dd0800000000000000
+      internalID: -2517476503613482987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 467
+        width: 41
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1a2b54c63d9f4320800000000000000
+      internalID: 2544425173035723290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 465
+        width: 41
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d4e71196b6f0c350800000000000000
+      internalID: 6035094764655207640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 464
+        width: 37
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc0f8f69bb17a6a10800000000000000
+      internalID: 1903458843023175883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 465
+        width: 40
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 903d5c55c02efb840800000000000000
+      internalID: 5242157033889059593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 464
+        width: 38
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe0a556108e378d40800000000000000
+      internalID: 5586502582627836143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 464
+        width: 35
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 280a815c37ded9f60800000000000000
+      internalID: 8042845591037321346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 417
+        width: 35
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75609f4244104ce80800000000000000
+      internalID: -8159395232698792361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 418
+        width: 35
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19f24be7b38128460800000000000000
+      internalID: 7242377794573053841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 418
+        width: 36
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e94440710ffeb560800000000000000
+      internalID: 7331577625049319913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 419
+        width: 36
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 701817904d81e45f0800000000000000
+      internalID: -770651187263209209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 418
+        width: 31
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4465892bd6d79250800000000000000
+      internalID: 5951461669376189515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 417
+        width: 31
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ae13afd185195ee0800000000000000
+      internalID: -1271961772208480604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 418
+        width: 35
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 360cca703f4cc34a0800000000000000
+      internalID: -6612193604801871773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 419
+        width: 40
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77814c4b49dfaa0d0800000000000000
+      internalID: -3410634952649992073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 418
+        width: 40
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 342d349cc4d2ea3f0800000000000000
+      internalID: -887722268727979453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 418
+        width: 40
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51d8f99c0b6faffe0800000000000000
+      internalID: -1154339115309757163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 418
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 548673832498eaf50800000000000000
+      internalID: 6894598997054810181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 367
+        width: 36
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0cdd46b851bddc10800000000000000
+      internalID: 2080013597488831498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 367
+        width: 39
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f4bf79cf74230280800000000000000
+      internalID: -9078372292588751625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 366
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27fa0ca7e93b2c500800000000000000
+      internalID: 415091608917159794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_26
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 366
+        width: 38
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2662de32696372660800000000000000
+      internalID: 7360912134436103778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_27
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 373
+        width: 38
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f542dd8ebe31b430800000000000000
+      internalID: 3796884948994115058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_28
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 366
+        width: 12
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06940f90f50be5090800000000000000
+      internalID: -8043797962202003104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_29
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 373
+        width: 39
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89a730f799cb37b20800000000000000
+      internalID: 3131053533399579288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_30
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 367
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1e549640077f6570800000000000000
+      internalID: 8462113067920285210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_31
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 365
+        width: 23
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17bac2afa0ba0abf0800000000000000
+      internalID: -315063910280680591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_32
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 372
+        width: 37
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 185e537321c452870800000000000000
+      internalID: 8657409499809047937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_33
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 365
+        width: 11
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27949b88f77bcf3b0800000000000000
+      internalID: -5477301288406791822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_34
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 372
+        width: 36
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20d94ba29397b6370800000000000000
+      internalID: 8316874423306329346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_35
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 362
+        width: 33
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e70c67598c0f10d0800000000000000
+      internalID: -3450025005525760032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_36
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 362
+        width: 33
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 861e29cd972351570800000000000000
+      internalID: 8436704975921537384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_37
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 366
+        width: 24
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e9cacbc790dd6e40800000000000000
+      internalID: 5651402457797544417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_38
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 312
+        width: 34
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57d47fe0a6b7978c0800000000000000
+      internalID: -4001031098494136971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_39
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 312
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fff4e2f53f2f7720800000000000000
+      internalID: 2846045398276308982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_40
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 312
+        width: 32
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 268219d4637859c30800000000000000
+      internalID: 4365544081104906338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_41
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 312
+        width: 33
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 611440f157c538830800000000000000
+      internalID: 4072200146174361878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_42
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 312
+        width: 32
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd5898a915f5e7b30800000000000000
+      internalID: 4286968699392984541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_43
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 310
+        width: 34
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8884cc52680577b50800000000000000
+      internalID: 6590825116769994888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_44
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 313
+        width: 35
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36d8943c5dc06f1c0800000000000000
+      internalID: -4470371467874693789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_45
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 311
+        width: 34
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14fb82aa09b020800800000000000000
+      internalID: 577036418214838081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_46
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 311
+        width: 35
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2a9d5cb1c31fb060800000000000000
+      internalID: 6971312471002683951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_47
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 311
+        width: 35
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8fed52a6881238a0800000000000000
+      internalID: -6326967559973376118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_48
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 311
+        width: 38
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be3740769102ac1b0800000000000000
+      internalID: -5635656690226138133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_49
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 311
+        width: 37
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 017d9ec61aa978430800000000000000
+      internalID: 3785164029935867664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_50
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 257
+        width: 39
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5099e09ddaa5bbfb0800000000000000
+      internalID: -4631008089102968571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_51
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 257
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82a9aa8c006c1ce20800000000000000
+      internalID: 3369191702918765096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_52
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 257
+        width: 37
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6d7de189978beb70800000000000000
+      internalID: 8929379779571711340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_53
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 257
+        width: 34
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6003fa249b6bddd20800000000000000
+      internalID: 3304998608363794438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_54
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 257
+        width: 40
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a2b640dd54fdd810800000000000000
+      internalID: 1791856910526755495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_55
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 257
+        width: 39
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68fe1d104de6ad1d0800000000000000
+      internalID: -3325223518017032314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_56
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 250
+        width: 26
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6217b07b7e986130800000000000000
+      internalID: 3560269758445589103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_57
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 250
+        width: 27
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f9b0ab65158f9710800000000000000
+      internalID: 1702225511215839731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_58
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 250
+        width: 27
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3cd9059e024af970800000000000000
+      internalID: 8789410253164371006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_59
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 250
+        width: 25
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 011526252fe222fd0800000000000000
+      internalID: -2368278835744321264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_60
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 250
+        width: 25
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8cc3a953466d9b10800000000000000
+      internalID: 1989859049820376206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_61
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 250
+        width: 27
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36164f60d4956d6e0800000000000000
+      internalID: -1813163612606013085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_62
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 190
+        width: 27
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7eadeab4a102fc7f0800000000000000
+      internalID: -590217728851256601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_63
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 190
+        width: 24
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aef07a9a0ba02bfb0800000000000000
+      internalID: -4633629312733999126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_64
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 190
+        width: 26
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 587717777bd910df0800000000000000
+      internalID: -215717895828572283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_65
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 190
+        width: 27
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4fe874ee32b57910800000000000000
+      internalID: 1834568406414192463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_66
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 190
+        width: 27
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16a770272b2c0afc0800000000000000
+      internalID: -3485572039911703967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_67
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 190
+        width: 27
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66cb64a956eb7bc70800000000000000
+      internalID: 8986860925030415462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_68
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 190
+        width: 26
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd630ebe350152d90800000000000000
+      internalID: -7123269282990901539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_69
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 190
+        width: 27
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4746a6f4b1ae78ec0800000000000000
+      internalID: -3564623177023069068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_70
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 190
+        width: 27
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97362efbc7f86a9f0800000000000000
+      internalID: -457520546173525127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_71
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 190
+        width: 28
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 695dc052d6f357b50800000000000000
+      internalID: 6590243367732172182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_72
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 190
+        width: 38
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3de111fd6a641d2f0800000000000000
+      internalID: -949900363877507373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_73
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 190
+        width: 39
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eca91d0643a837df0800000000000000
+      internalID: -183651202224776498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_74
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 191
+        width: 35
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 883badb15a61458e0800000000000000
+      internalID: -1705713460473842808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_75
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 126
+        width: 38
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21cd0df9ba55422e0800000000000000
+      internalID: -2151500526367220718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_76
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 126
+        width: 39
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d03ad22e20e893ee0800000000000000
+      internalID: -1280836475974474995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_77
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 126
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d938871c83a0f920800000000000000
+      internalID: 3022095172051155417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_78
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 126
+        width: 27
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dae8de67fd4a4eb0800000000000000
+      internalID: -4734886333114684719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_79
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 126
+        width: 27
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 548c1e1ba4dadc410800000000000000
+      internalID: 1499044787307792453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_80
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 126
+        width: 32
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3515f52d0bd0e3fd0800000000000000
+      internalID: -2360434101600693933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_81
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 14
+        width: 49
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c36d7f5b243036e0800000000000000
+      internalID: -1859929285213723711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_82
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 15
+        width: 56
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d8b89e99e68b2fd0800000000000000
+      internalID: -2365648841306752816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espio Sprite Sheet_83
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 15
+        width: 52
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e34c422d766571040800000000000000
+      internalID: 4618254946798978110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 2a88bb425f7125840bfc706f494b1297
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
