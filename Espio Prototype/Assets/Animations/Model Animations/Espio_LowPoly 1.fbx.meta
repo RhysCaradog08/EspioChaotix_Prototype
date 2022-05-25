@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 95c59046bf5fb064d84b12d7e3f9c7ff
+guid: e8d9b252eaffbaa40903a2f1f7ddced7
 ModelImporter:
   serializedVersion: 21100
   internalIDToNameTable:
@@ -11,13 +11,16 @@ ModelImporter:
     second: Idle
   - first:
       74: 8948952910897673278
-    second: Armature|NinjaPose_Idle
+    second: NinjaPose_Idle
   - first:
       74: -6916701234184849179
-    second: Armature|RunCycle
+    second: RunCycle
   - first:
       74: 3982517599449649964
-    second: Spin
+    second: Armature|Spin
+  - first:
+      74: -8258996780291451000
+    second: Armature|T Pose
   - first:
       74: 2517152770028793317
     second: WalkCycle
@@ -25,11 +28,8 @@ ModelImporter:
       74: -8151139043290950842
     second: Cmon_Idle
   - first:
-      74: 8638869969460609340
-    second: NinjaPose_Idle
-  - first:
-      74: -173902535149149278
-    second: RunCycle
+      74: -6333163131637793548
+    second: Spin
   externalObjects:
   - first:
       type: UnityEngine:Material

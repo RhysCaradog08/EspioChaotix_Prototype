@@ -4,23 +4,30 @@ using UnityEngine;
 
 public class Spin : MonoBehaviour
 {
+    Transform controlller;
+    public GameObject model;
     public GameObject spinOverlay;
     public float spinSpeed;
+
+    private void Start()
+    {
+        controlller = transform.root;
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Mouse0))
         {
-            transform.Rotate(Vector3.up, -spinSpeed);
+            model.transform.Rotate(Vector3.up, spinSpeed);
             spinOverlay.SetActive(true);
-            spinOverlay.transform.Rotate(Vector3.up, -spinSpeed);
+            spinOverlay.transform.Rotate(Vector3.up, spinSpeed);
         }
         else
         {
-            transform.rotation = Quaternion.Euler(0, 0, 0);
+            model.transform.rotation = controlller.rotation;
             spinOverlay.SetActive(false);
-            spinOverlay.transform.rotation = Quaternion.Euler(0, 0, 0);
+            spinOverlay.transform.rotation = controlller.rotation;
         }
     }
 }

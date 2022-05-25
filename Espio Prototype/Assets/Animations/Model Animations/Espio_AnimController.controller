@@ -138,7 +138,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: -8945691123924629249, guid: 95c59046bf5fb064d84b12d7e3f9c7ff, type: 3}
+    m_Motion: {fileID: -8945691123924629249, guid: e8d9b252eaffbaa40903a2f1f7ddced7, type: 3}
     m_Threshold: 0.01
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -146,7 +146,7 @@ BlendTree:
     m_DirectBlendParameter: Speed
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 2517152770028793317, guid: 95c59046bf5fb064d84b12d7e3f9c7ff, type: 3}
+    m_Motion: {fileID: 2517152770028793317, guid: e8d9b252eaffbaa40903a2f1f7ddced7, type: 3}
     m_Threshold: 0.5
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -154,7 +154,7 @@ BlendTree:
     m_DirectBlendParameter: Speed
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: -6916701234184849179, guid: 95c59046bf5fb064d84b12d7e3f9c7ff, type: 3}
+    m_Motion: {fileID: -6916701234184849179, guid: e8d9b252eaffbaa40903a2f1f7ddced7, type: 3}
     m_Threshold: 1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -215,7 +215,7 @@ AnimatorController:
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
-    m_DefaultBool: 0
+    m_DefaultBool: 1
     m_Controller: {fileID: 0}
   - m_Name: NinjaPose
     m_Type: 9
@@ -263,7 +263,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 3982517599449649964, guid: 95c59046bf5fb064d84b12d7e3f9c7ff, type: 3}
+  m_Motion: {fileID: -6333163131637793548, guid: e8d9b252eaffbaa40903a2f1f7ddced7, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -290,7 +290,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 8638869969460609340, guid: 95c59046bf5fb064d84b12d7e3f9c7ff, type: 3}
+  m_Motion: {fileID: 8948952910897673278, guid: e8d9b252eaffbaa40903a2f1f7ddced7, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -339,7 +339,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -8151139043290950842, guid: 95c59046bf5fb064d84b12d7e3f9c7ff, type: 3}
+  m_Motion: {fileID: -8151139043290950842, guid: e8d9b252eaffbaa40903a2f1f7ddced7, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
