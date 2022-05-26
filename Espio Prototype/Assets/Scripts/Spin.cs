@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Spin : MonoBehaviour
 {
-    Transform controlller;
+    Transform controller;
     public GameObject model;
-    public GameObject spinOverlay;
+    public GameObject spinMesh;
     public float spinSpeed;
 
     private void Start()
     {
-        controlller = transform.root;
+        controller = transform.root;
     }
 
     // Update is called once per frame
@@ -20,14 +20,14 @@ public class Spin : MonoBehaviour
         if (Input.GetKey(KeyCode.Mouse0))
         {
             model.transform.Rotate(Vector3.up, spinSpeed);
-            spinOverlay.SetActive(true);
-            spinOverlay.transform.Rotate(Vector3.up, spinSpeed);
+            spinMesh.SetActive(true);
+            spinMesh.transform.Rotate(Vector3.up, spinSpeed);
         }
         else
         {
-            model.transform.rotation = controlller.rotation;
-            spinOverlay.SetActive(false);
-            spinOverlay.transform.rotation = controlller.rotation;
+            model.transform.rotation = controller.rotation;
+            spinMesh.SetActive(false);
+            spinMesh.transform.rotation = controller.rotation;
         }
     }
 }
