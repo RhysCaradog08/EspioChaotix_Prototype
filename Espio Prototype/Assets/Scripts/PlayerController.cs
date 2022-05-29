@@ -10,9 +10,9 @@ public class PlayerController : MonoBehaviour
 
     public GameObject model, spinMesh;
 
-    [SerializeField] float currentSpeed, maxSpeed, acceleration, deceleration, jumpForce, rotateSpeed, spinSpeed, time;
+    [SerializeField] float currentSpeed, maxSpeed, acceleration, deceleration, jumpForce, rotateSpeed, spinSpeed;
 
-    [SerializeField] bool hasJumped;
+    [SerializeField] bool hasJumped, isSprinting;
 
     private void Awake()
     {
@@ -30,17 +30,23 @@ public class PlayerController : MonoBehaviour
         if (moveDirection.magnitude > Mathf.Epsilon)
         {
             currentSpeed += acceleration * Time.deltaTime;
+
+            if(currentSpeed >= 75)
+            {
+                isSprinting = true;
+            }
+
             if (currentSpeed >= maxSpeed)
             {
                 currentSpeed = maxSpeed;
             }
 
-            MovePlayer();
-            RotatePlayer();
+            //MovePlayer();
+            //RotatePlayer();
         }
         else
         {
-            time = 0;
+            isSprinting = false;
             transform.rotation = transform.rotation;
 
             currentSpeed -= deceleration * Time.deltaTime;
@@ -49,11 +55,6 @@ public class PlayerController : MonoBehaviour
             {
                 currentSpeed = 0;
             }
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
 
         if (Input.GetKey(KeyCode.Mouse0))
@@ -72,15 +73,44 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        if (moveDirection.magnitude > Mathf.Epsilon)
+        {
+            MovePlayer();
+            RotatePlayer();
+        }
+        else
+        {
+            if (isSprinting)
+            {
+                playerRB.drag = 5;
+            }
+            else playerRB.drag = 2;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Jump();
+        }
+    }
+
     void MovePlayer()
     {
-        transform.Translate(moveDirection * currentSpeed * Time.deltaTime, Space.World);
+        //transform.Translate(moveDirection * currentSpeed * Time.deltaTime, Space.World);
+
+        playerRB.drag = 0;
+        playerRB.velocity = new Vector3(moveDirection.x * currentSpeed, playerRB.velocity.y, moveDirection.z * currentSpeed);
     }
 
     void RotatePlayer()
     {
-        Quaternion targetRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotateSpeed);
+        transform.rotation = Quaternion.LookRotation(playerRB.velocity);
+    }
+
+    void Jump()
+    {
+        playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
     }
 }
 
