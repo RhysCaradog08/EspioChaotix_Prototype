@@ -46,7 +46,12 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            isSprinting = false;
+            if(isSprinting)
+            {
+                anim.SetTrigger("Slowdown");
+                isSprinting = false;
+            }
+
             transform.rotation = transform.rotation;
 
             currentSpeed -= deceleration * Time.deltaTime;
@@ -55,6 +60,7 @@ public class PlayerController : MonoBehaviour
             {
                 currentSpeed = 0;
             }
+            anim.ResetTrigger("SlowDown");
         }
 
         if (Input.GetKey(KeyCode.Mouse0))
