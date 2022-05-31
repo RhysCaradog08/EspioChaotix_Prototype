@@ -5,14 +5,22 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Animator anim;
-    private Vector3 moveDirection;
     Rigidbody playerRB;
+    private Vector3 moveDirection;
 
-    public GameObject model, spinMesh;
+    [Header("Spin Attack")]
+    public GameObject playerModel, spinMesh;
+    [SerializeField] float spinSpeed;
 
-    [SerializeField] float currentSpeed, maxSpeed, acceleration, deceleration, jumpForce, rotateSpeed, spinSpeed;
+    [Header("Movement")]
+    [SerializeField] float currentSpeed, maxSpeed, acceleration, rotateSpeed;
+    [SerializeField] bool isSprinting, slowingDown;
 
-    [SerializeField] bool hasJumped, isSprinting, slowingDown;
+    [Header("Jumping")]
+    public Transform groundCheck;
+    public LayerMask ground;
+    [SerializeField] float jumpForce;
+    [SerializeField] bool canPressSpace, hasJumped, isGrounded;
 
     private void Awake()
     {
@@ -20,9 +28,39 @@ public class PlayerController : MonoBehaviour
         playerRB = GetComponent<Rigidbody>();
     }
 
+    private void Start()
+    {
+        //Jumping
+        canPressSpace = true;
+        hasJumped = false;
+    }
+
     // Update is called once per frame
     void Update()
     {
+        isGrounded = Physics.CheckSphere(groundCheck.position, 0.5f, ground);
+
+        if (Input.GetButtonUp("Jump") && !hasJumped) //Check to stop infinite jumping.
+        {
+            canPressSpace = true;
+        }
+
+        if (isGrounded)
+        {
+            if (Input.GetButton("Jump") && canPressSpace)  //Sets Y position to match jumpSpeed identifies that player has performed the Jump action.
+            {
+                hasJumped = true;
+            }
+
+            if (hasJumped)  //Sets Jump animation and prevents player from additional jumps once the Jump action is performed.
+            {
+                anim.SetBool("Jumping", true);
+                canPressSpace = false;
+                hasJumped = false;
+            }
+            else anim.SetBool("Jumping", false);
+        }
+
         moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized;
 
         anim.SetFloat("Speed", currentSpeed);
@@ -52,8 +90,6 @@ public class PlayerController : MonoBehaviour
                 }
             }
 
-            transform.rotation = transform.rotation;
-
             currentSpeed = 0;
         }
 
@@ -73,14 +109,14 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.Mouse0))
         {
             anim.SetBool("Spinning", true);
-            model.transform.Rotate(Vector3.up, spinSpeed);
+            playerModel.transform.Rotate(Vector3.up, spinSpeed);
             spinMesh.SetActive(true);
             spinMesh.transform.Rotate(Vector3.up, spinSpeed);
         }
         else
         {
             anim.SetBool("Spinning", false);
-            model.transform.rotation = transform.rotation;
+            playerModel.transform.rotation = transform.rotation;
             spinMesh.SetActive(false);
             spinMesh.transform.rotation = transform.rotation;
         }
@@ -102,16 +138,15 @@ public class PlayerController : MonoBehaviour
             else playerRB.drag = 2;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !hasJumped)
         {
+            hasJumped = true;
             Jump();
         }
     }
 
     void MovePlayer()
     {
-        //transform.Translate(moveDirection * currentSpeed * Time.deltaTime, Space.World);
-
         playerRB.drag = 0;
         playerRB.velocity = new Vector3(moveDirection.x * currentSpeed, playerRB.velocity.y, moveDirection.z * currentSpeed);
     }
@@ -123,7 +158,14 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
+        Debug.Log("Has Jumped " + hasJumped);
         playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+    }
+
+    void OnDrawGizmos()
+    {   
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(groundCheck.position, 0.5f);
     }
 }
 
