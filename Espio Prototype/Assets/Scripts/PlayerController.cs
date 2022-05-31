@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] float currentSpeed, maxSpeed, acceleration, deceleration, jumpForce, rotateSpeed, spinSpeed;
 
-    [SerializeField] bool hasJumped, isSprinting;
+    [SerializeField] bool hasJumped, isSprinting, slowingDown;
 
     private void Awake()
     {
@@ -27,11 +27,11 @@ public class PlayerController : MonoBehaviour
 
         anim.SetFloat("Speed", currentSpeed);
 
-        if (moveDirection.magnitude > Mathf.Epsilon)
+        if (moveDirection.magnitude > Mathf.Epsilon && !slowingDown)
         {
             currentSpeed += acceleration * Time.deltaTime;
 
-            if(currentSpeed >= 75)
+            if (currentSpeed >= 75)
             {
                 isSprinting = true;
             }
@@ -40,27 +40,34 @@ public class PlayerController : MonoBehaviour
             {
                 currentSpeed = maxSpeed;
             }
-
-            //MovePlayer();
-            //RotatePlayer();
         }
         else
         {
-            if(isSprinting)
+            if (isSprinting)
             {
-                anim.SetTrigger("Slowdown");
-                isSprinting = false;
+                if (playerRB.velocity.x != 0 || playerRB.velocity.z != 0)
+                {
+                    isSprinting = false;
+                    slowingDown = true;
+                }
             }
 
             transform.rotation = transform.rotation;
 
-            currentSpeed -= deceleration * Time.deltaTime;
+            currentSpeed = 0;
+        }
 
-            if (currentSpeed <= 0)
+        if(slowingDown)
+        {
+            if (playerRB.velocity.x != 0 || playerRB.velocity.z != 0)
             {
-                currentSpeed = 0;
+                anim.SetBool("SlowDown", true);
             }
-            anim.ResetTrigger("SlowDown");
+            else
+            {
+                slowingDown = false;
+                anim.SetBool("SlowDown", false);
+            }
         }
 
         if (Input.GetKey(KeyCode.Mouse0))
@@ -81,7 +88,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (moveDirection.magnitude > Mathf.Epsilon)
+        if (moveDirection.magnitude > Mathf.Epsilon && !slowingDown)
         {
             MovePlayer();
             RotatePlayer();

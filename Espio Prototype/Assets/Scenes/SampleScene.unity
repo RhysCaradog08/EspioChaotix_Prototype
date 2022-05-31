@@ -295,7 +295,6 @@ GameObject:
   - component: {fileID: 222127109}
   - component: {fileID: 222127108}
   - component: {fileID: 222127107}
-  - component: {fileID: 222127105}
   m_Layer: 0
   m_Name: Espio
   m_TagString: Untagged
@@ -303,21 +302,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &222127105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 222127104}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1e2c22c55858fd4192076d99329f3f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  model: {fileID: 0}
-  spinMesh: {fileID: 0}
-  spinSpeed: 10
 --- !u!4 &222127106
 Transform:
   m_ObjectHideFlags: 0
@@ -357,6 +341,7 @@ MonoBehaviour:
   spinSpeed: 10
   hasJumped: 0
   isSprinting: 0
+  slowingDown: 0
 --- !u!54 &222127108
 Rigidbody:
   m_ObjectHideFlags: 0
