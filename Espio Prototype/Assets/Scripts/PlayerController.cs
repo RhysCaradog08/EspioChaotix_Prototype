@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Animator anim;
-    Rigidbody playerRB;
+    Rigidbody rb;
     private Vector3 moveDirection;
 
     [Header("Spin Attack")]
@@ -19,20 +19,21 @@ public class PlayerController : MonoBehaviour
     [Header("Jumping")]
     public Transform groundCheck;
     public LayerMask ground;
-    [SerializeField] float jumpForce;
-    [SerializeField] bool canPressSpace, hasJumped, isGrounded;
+    [SerializeField] float jumpForce, jumpHeight, timeToJumpApex, gravityScale, fallingGravityScale;
+    [SerializeField] bool isGrounded, canPressSpace, hasJumped;
 
     private void Awake()
     {
         anim = GetComponentInChildren<Animator>();
-        playerRB = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
     }
 
     private void Start()
     {
         //Jumping
+        gravityScale = -(2 * jumpHeight) / Mathf.Pow(timeToJumpApex, 2);
+        jumpForce = Mathf.Abs(gravityScale) * timeToJumpApex;
         canPressSpace = true;
-        hasJumped = false;
     }
 
     // Update is called once per frame
@@ -40,14 +41,14 @@ public class PlayerController : MonoBehaviour
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, 0.5f, ground);
 
-        if (Input.GetButtonUp("Jump") && !hasJumped) //Check to stop infinite jumping.
+        if (Input.GetKeyUp(KeyCode.Space) && !hasJumped) //Check to stop infinite jumping.
         {
             canPressSpace = true;
         }
 
         if (isGrounded)
         {
-            if (Input.GetButton("Jump") && canPressSpace)  //Sets Y position to match jumpSpeed identifies that player has performed the Jump action.
+            if (Input.GetKey(KeyCode.Space) && canPressSpace)
             {
                 hasJumped = true;
             }
@@ -58,16 +59,19 @@ public class PlayerController : MonoBehaviour
                 canPressSpace = false;
                 hasJumped = false;
             }
-            else anim.SetBool("Jumping", false);
+            anim.SetBool("Jumping", false);
         }
-
-        moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized;
 
         anim.SetFloat("Speed", currentSpeed);
 
+        moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized;
+
         if (moveDirection.magnitude > Mathf.Epsilon && !slowingDown)
         {
-            currentSpeed += acceleration * Time.deltaTime;
+            if (isGrounded)
+            {
+                currentSpeed += acceleration * Time.deltaTime;
+            }
 
             if (currentSpeed >= 75)
             {
@@ -83,7 +87,7 @@ public class PlayerController : MonoBehaviour
         {
             if (isSprinting)
             {
-                if (playerRB.velocity.x != 0 || playerRB.velocity.z != 0)
+                if (rb.velocity.x != 0 || rb.velocity.z != 0)
                 {
                     isSprinting = false;
                     slowingDown = true;
@@ -95,7 +99,7 @@ public class PlayerController : MonoBehaviour
 
         if(slowingDown)
         {
-            if (playerRB.velocity.x != 0 || playerRB.velocity.z != 0)
+            if (rb.velocity.x != 0 || rb.velocity.z != 0)
             {
                 anim.SetBool("SlowDown", true);
             }
@@ -133,33 +137,49 @@ public class PlayerController : MonoBehaviour
         {
             if (isSprinting)
             {
-                playerRB.drag = 5;
+                rb.drag = 5;
             }
-            else playerRB.drag = 2;
+            else rb.drag = 2;
+
+            if (isGrounded)
+            {
+                rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+            }
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && !hasJumped)
+        if (isGrounded)
         {
-            hasJumped = true;
-            Jump();
+            if (Input.GetKey(KeyCode.Space) && canPressSpace)
+            {
+                Jump();
+            }
         }
+        else Fall();
     }
 
     void MovePlayer()
     {
-        playerRB.drag = 0;
-        playerRB.velocity = new Vector3(moveDirection.x * currentSpeed, playerRB.velocity.y, moveDirection.z * currentSpeed);
+        rb.drag = 0;
+        rb.velocity = new Vector3(moveDirection.x * currentSpeed, rb.velocity.y, moveDirection.z * currentSpeed);
     }
 
     void RotatePlayer()
     {
-        transform.rotation = Quaternion.LookRotation(playerRB.velocity);
+        if (isGrounded)
+        {
+            transform.rotation = Quaternion.LookRotation(rb.velocity);
+        }
     }
 
     void Jump()
     {
         Debug.Log("Has Jumped " + hasJumped);
-        playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+    }
+
+    void Fall()
+    {
+        rb.AddForce(Vector3.up * gravityScale, ForceMode.Acceleration);
     }
 
     void OnDrawGizmos()
