@@ -10,7 +10,9 @@ public class PlayerController : MonoBehaviour
 
     [Header("Spin Attack")]
     public GameObject playerModel, spinMesh;
-    [SerializeField] float spinSpeed;
+    public Transform spinPivot;
+    [SerializeField] float spinSpeed, spinTime;
+    [SerializeField] bool isSpinning;
 
     [Header("Movement")]
     [SerializeField] float currentSpeed, maxSpeed, acceleration, rotateSpeed;
@@ -30,6 +32,9 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        //Spin Attack
+        spinTime = 0;
+
         //Jumping
         gravityScale = -(2 * jumpHeight) / Mathf.Pow(timeToJumpApex, 2);
         jumpForce = Mathf.Abs(gravityScale) * timeToJumpApex;
@@ -48,18 +53,21 @@ public class PlayerController : MonoBehaviour
 
         if (isGrounded)
         {
+            anim.SetBool("Falling", false);
+
             if (Input.GetKey(KeyCode.Space) && canPressSpace)
             {
                 hasJumped = true;
             }
 
-            if (hasJumped)  //Sets Jump animation and prevents player from additional jumps once the Jump action is performed.
+            /*if (hasJumped)  //Sets Jump animation and prevents player from additional jumps once the Jump action is performed.
             {
+                Debug.Log("Jumping");
                 anim.SetBool("Jumping", true);
                 canPressSpace = false;
                 hasJumped = false;
             }
-            anim.SetBool("Jumping", false);
+            anim.SetBool("Jumping", false);*/
         }
 
         anim.SetFloat("Speed", currentSpeed);
@@ -110,14 +118,42 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (Input.GetKey(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !isSpinning)
+        {
+            if (isSprinting)
+            {
+                isSpinning = true;
+            }
+            else
+            {
+                spinTime = 0.5f;
+            }
+        }
+
+        if (!isSprinting)
+        {
+            if (spinTime > 0)
+            {
+                isSpinning = true;
+                spinTime -= Time.deltaTime;
+            }
+
+            else if (spinTime <= 0)
+            {
+                isSpinning = false;
+                spinTime = 0;
+            }
+        }
+
+        if(isSpinning)
         {
             anim.SetBool("Spinning", true);
             playerModel.transform.Rotate(Vector3.up, spinSpeed);
             spinMesh.SetActive(true);
             spinMesh.transform.Rotate(Vector3.up, spinSpeed);
+
         }
-        else
+        else 
         {
             anim.SetBool("Spinning", false);
             playerModel.transform.rotation = transform.rotation;
@@ -171,12 +207,13 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
-        Debug.Log("Has Jumped " + hasJumped);
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
     }
 
     void Fall()
     {
+        Debug.Log("Falling");
+        anim.SetBool("Falling", true);
         rb.AddForce(Vector3.up * gravityScale, ForceMode.Acceleration);
     }
 
