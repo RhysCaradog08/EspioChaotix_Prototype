@@ -60,14 +60,24 @@ public class PlayerController : MonoBehaviour
                 hasJumped = true;
             }
 
-            /*if (hasJumped)  //Sets Jump animation and prevents player from additional jumps once the Jump action is performed.
+            if (hasJumped)  //Sets Jump animation and prevents player from additional jumps once the Jump action is performed.
             {
                 Debug.Log("Jumping");
-                anim.SetBool("Jumping", true);
                 canPressSpace = false;
                 hasJumped = false;
             }
-            anim.SetBool("Jumping", false);*/
+        }
+        else if(!isGrounded)
+        {
+            if(rb.velocity.y > 0)
+            {
+                anim.SetBool("Jumping", true);
+            }
+            else if(rb.velocity.y < 0)
+            {
+                anim.SetBool("Jumping", false);
+                anim.SetBool("Falling", true);
+            }
         }
 
         anim.SetFloat("Speed", currentSpeed);
@@ -190,7 +200,7 @@ public class PlayerController : MonoBehaviour
                 Jump();
             }
         }
-        else Fall();
+        else rb.AddForce(Vector3.up * gravityScale, ForceMode.Acceleration);
     }
 
     void MovePlayer()
@@ -208,13 +218,6 @@ public class PlayerController : MonoBehaviour
     void Jump()
     {
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-    }
-
-    void Fall()
-    {
-        Debug.Log("Falling");
-        anim.SetBool("Falling", true);
-        rb.AddForce(Vector3.up * gravityScale, ForceMode.Acceleration);
     }
 
     void OnDrawGizmos()
