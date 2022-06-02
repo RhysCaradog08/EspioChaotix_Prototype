@@ -165,10 +165,8 @@ public class PlayerController : MonoBehaviour
 
     void RotatePlayer()
     {
-        if (isGrounded)
-        {
-            transform.rotation = Quaternion.LookRotation(rb.velocity);
-        }
+        Vector3 forwardDir = new Vector3(moveDirection.x, 0, moveDirection.z);
+        transform.rotation = Quaternion.LookRotation(forwardDir, Vector3.up);
     }
 
     void Jump()
