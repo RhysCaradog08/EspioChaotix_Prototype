@@ -347,12 +347,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerModel: {fileID: 271512314}
   spinMesh: {fileID: 1683865615}
-  spinPivot: {fileID: 0}
   spinSpeed: 10
+  chargeSpeed: 0
   spinTime: 0
+  dashTime: 0
   isSpinning: 0
+  chargingSpin: 0
+  spinDashing: 0
   currentSpeed: 0
-  maxSpeed: 100
+  maxSpeed: 200
   acceleration: 25
   rotateSpeed: 100
   isSprinting: 0
@@ -798,7 +801,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.3432574, y: 1}
+    m_SensorSize: {x: 0.7793345, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

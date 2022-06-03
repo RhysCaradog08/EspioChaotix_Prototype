@@ -10,9 +10,8 @@ public class PlayerController : MonoBehaviour
 
     [Header("Spin Attack")]
     public GameObject playerModel, spinMesh;
-    public Transform spinPivot;
-    [SerializeField] float spinSpeed, spinTime;
-    [SerializeField] bool isSpinning;
+    [SerializeField] float spinSpeed, chargeSpeed, spinTime, dashTime;
+    [SerializeField] bool isSpinning, chargingSpin, spinDashing;
 
     [Header("Movement")]
     [SerializeField] float currentSpeed, maxSpeed, acceleration, rotateSpeed;
@@ -44,7 +43,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        isGrounded = Physics.CheckSphere(groundCheck.position, 0.5f, ground);
+        isGrounded = Physics.CheckSphere(groundCheck.position, 0.5f, ground); //CheckSphere to determine if gorunded.
 
         if (Input.GetKeyUp(KeyCode.Space) && !hasJumped) //Check to stop infinite jumping.
         {
@@ -54,6 +53,22 @@ public class PlayerController : MonoBehaviour
         if (isGrounded)
         {
             anim.SetBool("Falling", false);
+
+            if (Input.GetKeyDown(KeyCode.Mouse1)) 
+            {
+                chargeSpeed = 0; //Resets chargeSpeed value;
+            }
+
+            if (Input.GetKey(KeyCode.Mouse1) && currentSpeed < 0.01f) //If player is stationary they can begin charging Spin Dash.
+            {
+                chargingSpin = true;
+            }
+            else chargingSpin = false;
+
+            if (Input.GetKeyUp(KeyCode.Mouse1) && chargeSpeed > 0)
+            {
+                dashTime = 1;
+            }
 
             if (Input.GetKey(KeyCode.Space) && canPressSpace)
             {
@@ -67,13 +82,13 @@ public class PlayerController : MonoBehaviour
                 hasJumped = false;
             }
         }
-        else if(!isGrounded)
+        else if (!isGrounded)
         {
-            if(rb.velocity.y > 0)
+            if (rb.velocity.y > 0)
             {
-                anim.SetBool("Jumping", true);
+                anim.SetBool("Jumping", true); //Resets Jumping animation.
             }
-            else if(rb.velocity.y < 0)
+            else if (rb.velocity.y < 0) //Changes to falling animation as rigidbody velocity begins descending.
             {
                 anim.SetBool("Jumping", false);
                 anim.SetBool("Falling", true);
@@ -84,38 +99,90 @@ public class PlayerController : MonoBehaviour
 
         moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized;
 
+
         if (moveDirection.magnitude > Mathf.Epsilon && !slowingDown)
         {
             if (isGrounded)
             {
-                currentSpeed += acceleration * Time.deltaTime;
+                if (!chargingSpin || !spinDashing)
+                {
+                    currentSpeed += acceleration * Time.deltaTime;  //Gradually increment player speed when not performing spin dash action.
+                }
             }
 
-            if (currentSpeed >= 75)
+            if (currentSpeed >= 100)
             {
-                isSprinting = true;
+                isSprinting = true; //Player changes from running to sprinting.
             }
 
             if (currentSpeed >= maxSpeed)
             {
-                currentSpeed = maxSpeed;
+                currentSpeed = maxSpeed; //Limit currentSpeed.
+            }
+
+            if (spinDashing)
+            {
+                currentSpeed = chargeSpeed; //Match current speed to chargeSpeed.
+            }
+            else
+            {
+                chargeSpeed = 0;
             }
         }
-        else
+        else if(moveDirection.magnitude < 0.01)
         {
             if (isSprinting)
             {
-                if (rb.velocity.x != 0 || rb.velocity.z != 0)
+                if (rb.velocity.x != 0 || rb.velocity.z != 0) //Slow change player parameters from sprinting to slowing down.
                 {
                     isSprinting = false;
                     slowingDown = true;
                 }
             }
 
-            currentSpeed = 0;
+            if (!isSpinning)
+            {
+                currentSpeed = 0;
+            }
+        }
+        
+        if (chargingSpin)
+        {
+            if (Input.GetKeyDown(KeyCode.Mouse0)) //Increment chargeSpeed.
+            {
+                chargeSpeed += 50;
+            }
+
+            if (chargeSpeed > 0) //Set spinning animation increasing speed of spin with chargeSpeed.
+            {
+                isSpinning = true;
+                spinSpeed = (chargeSpeed / 25) + 2;
+
+                if (spinSpeed >= 10) //Cap spinSpeed.
+                {
+                    spinSpeed = 10;
+                }
+            }
+
+            if (chargeSpeed >= maxSpeed) //Limit chargeSpeed to maxSpeed.
+            {
+                chargeSpeed = maxSpeed;
+            }
         }
 
-        if(slowingDown)
+        if (dashTime > 0)
+        {
+            dashTime -= Time.deltaTime; //Player is in spinDash state whilst dashTime > 0.
+            spinDashing = true;
+        }
+        else if(dashTime <= 0)
+        {
+            dashTime = 0;
+            spinDashing = false;
+        }
+            
+
+        if (slowingDown)
         {
             if (rb.velocity.x != 0 || rb.velocity.z != 0)
             {
@@ -128,7 +195,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse0) && !isSpinning)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !isSpinning) //Set player Spinning state.
         {
             if (isSprinting)
             {
@@ -136,7 +203,10 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                spinTime = 0.5f;
+                if (!slowingDown)
+                {
+                    spinTime = 0.5f;
+                }
             }
         }
 
@@ -147,7 +217,6 @@ public class PlayerController : MonoBehaviour
                 isSpinning = true;
                 spinTime -= Time.deltaTime;
             }
-
             else if (spinTime <= 0)
             {
                 isSpinning = false;
@@ -155,7 +224,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if(isSpinning)
+        if(isSpinning) //Set player animtion state to spinning then rotate playerModel and activated spinMesh to achieve spin effect.
         {
             anim.SetBool("Spinning", true);
             playerModel.transform.Rotate(Vector3.up, spinSpeed);
@@ -163,7 +232,7 @@ public class PlayerController : MonoBehaviour
             spinMesh.transform.Rotate(Vector3.up, spinSpeed);
 
         }
-        else 
+        else   //Reset playerModel and spinMesh  transforms to match player rotation.
         {
             anim.SetBool("Spinning", false);
             playerModel.transform.rotation = transform.rotation;
@@ -174,14 +243,21 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (moveDirection.magnitude > Mathf.Epsilon && !slowingDown)
+        if (moveDirection.magnitude > Mathf.Epsilon && !slowingDown) //Move player rigidbody.
         {
+            rb.drag = 0;
             MovePlayer();
             RotatePlayer();
         }
         else
         {
-            if (isSprinting)
+            if (spinDashing)
+            {
+                rb.velocity = transform.forward * (chargeSpeed + 50); //Dash in players forward vector if spin dashing.
+            }
+            else currentSpeed = chargeSpeed;
+
+            if (isSprinting) //Set rigidbody drag to slow player velocity, higher value for moving at a faster speed.
             {
                 rb.drag = 5;
             }
@@ -189,27 +265,35 @@ public class PlayerController : MonoBehaviour
 
             if (isGrounded)
             {
-                rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+                rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z); //Resetes vertical velocity when grounded.
             }
         }
 
         if (isGrounded)
         {
-            if (Input.GetKey(KeyCode.Space) && canPressSpace)
+            if (!chargingSpin)
             {
-                Jump();
+                rb.isKinematic = false;
+
+                if (Input.GetKey(KeyCode.Space) && canPressSpace)
+                {
+                    Jump();
+                }
+            }
+            else if(chargingSpin)
+            {
+                rb.isKinematic = true; //Keep player in place whilst chargingSpin.
             }
         }
-        else rb.AddForce(Vector3.up * gravityScale, ForceMode.Acceleration);
+        else rb.AddForce(Vector3.up * gravityScale, ForceMode.Acceleration); //Add gravityScale to player Rigibody to force them back to ground.
     }
 
     void MovePlayer()
     {
-        rb.drag = 0;
-        rb.velocity = new Vector3(moveDirection.x * currentSpeed, rb.velocity.y, moveDirection.z * currentSpeed);
+        rb.velocity = new Vector3(moveDirection.x * currentSpeed, rb.velocity.y, moveDirection.z * currentSpeed); //Move player rigidbody along x and z axis.
     }
 
-    void RotatePlayer()
+    void RotatePlayer() //Rotate player transform to match moveDirection inputs.
     {
         Vector3 forwardDir = new Vector3(moveDirection.x, 0, moveDirection.z);
         transform.rotation = Quaternion.LookRotation(forwardDir, Vector3.up);
@@ -217,7 +301,7 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
-        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse); //Force player rigidbody upwards in Y axis to simulate jumping.
     }
 
     void OnDrawGizmos()
