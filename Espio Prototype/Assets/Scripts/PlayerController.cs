@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Movement")]
     [SerializeField] float currentSpeed, maxSpeed, acceleration, rotateSpeed;
-    [SerializeField] bool isSprinting, slowingDown;
+    [SerializeField] bool canMove, isSprinting, slowingDown;
 
     [Header("Jumping")]
     public Transform groundCheck;
@@ -31,8 +31,13 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        //Movement
+        canMove = true;
+
         //Spin Attack
         spinTime = 0;
+        chargingSpin = false;
+        spinDashing = false;
 
         //Jumping
         gravityScale = -(2 * jumpHeight) / Mathf.Pow(timeToJumpApex, 2);
@@ -50,12 +55,23 @@ public class PlayerController : MonoBehaviour
             canPressSpace = true;
         }
 
+        if (slowingDown || chargingSpin) //Determine whetehr player can move via input control;
+        {
+            canMove = false;
+        }
+        else canMove = true;
+
         if (isGrounded)
         {
             anim.SetBool("Falling", false);
 
-            if (Input.GetKeyDown(KeyCode.Mouse1)) 
+            if (Input.GetKeyDown(KeyCode.Mouse1))
             {
+                if(spinDashing)
+                { 
+                    spinDashing = false;
+                }
+
                 chargeSpeed = 0; //Resets chargeSpeed value;
             }
 
@@ -99,14 +115,13 @@ public class PlayerController : MonoBehaviour
 
         moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized;
 
-
-        if (moveDirection.magnitude > Mathf.Epsilon && !slowingDown)
+        if (moveDirection.magnitude > Mathf.Epsilon && canMove)
         {
             if (isGrounded)
             {
-                if (!chargingSpin || !spinDashing)
+                if (!spinDashing)
                 {
-                    currentSpeed += acceleration * Time.deltaTime;  //Gradually increment player speed when not performing spin dash action.
+                    currentSpeed += acceleration * Time.deltaTime;  //Gradually increment player speed when not st full speed.
                 }
             }
 
@@ -120,22 +135,15 @@ public class PlayerController : MonoBehaviour
                 currentSpeed = maxSpeed; //Limit currentSpeed.
             }
 
-            if (spinDashing)
-            {
-                currentSpeed = chargeSpeed; //Match current speed to chargeSpeed.
-            }
-            else
-            {
-                chargeSpeed = 0;
-            }
         }
-        else if(moveDirection.magnitude < 0.01)
+        else if (moveDirection.magnitude < 0.01)
         {
             if (isSprinting)
             {
                 if (rb.velocity.x != 0 || rb.velocity.z != 0) //Slow change player parameters from sprinting to slowing down.
                 {
                     isSprinting = false;
+                    spinDashing = false;
                     slowingDown = true;
                 }
             }
@@ -145,11 +153,17 @@ public class PlayerController : MonoBehaviour
                 currentSpeed = 0;
             }
         }
-        
+
         if (chargingSpin)
         {
+            Debug.Log("Charging/Spin Dashing - Cannot Move");
             if (Input.GetKeyDown(KeyCode.Mouse0)) //Increment chargeSpeed.
             {
+                if(chargeSpeed <= 0.01f)
+                {
+                    chargeSpeed = 50;
+                }
+
                 chargeSpeed += 50;
             }
 
@@ -175,12 +189,16 @@ public class PlayerController : MonoBehaviour
             dashTime -= Time.deltaTime; //Player is in spinDash state whilst dashTime > 0.
             spinDashing = true;
         }
-        else if(dashTime <= 0)
+        else if (dashTime <= 0)
         {
             dashTime = 0;
-            spinDashing = false;
         }
-            
+
+        if (spinDashing)
+        {
+            isSpinning = true;
+            currentSpeed = chargeSpeed; //Match current speed to chargeSpeed.
+        }
 
         if (slowingDown)
         {
@@ -217,7 +235,7 @@ public class PlayerController : MonoBehaviour
                 isSpinning = true;
                 spinTime -= Time.deltaTime;
             }
-            else if (spinTime <= 0)
+            else if (spinTime <= 0 && !chargingSpin && !spinDashing)
             {
                 isSpinning = false;
                 spinTime = 0;
@@ -255,7 +273,6 @@ public class PlayerController : MonoBehaviour
             {
                 rb.velocity = transform.forward * (chargeSpeed + 50); //Dash in players forward vector if spin dashing.
             }
-            else currentSpeed = chargeSpeed;
 
             if (isSprinting) //Set rigidbody drag to slow player velocity, higher value for moving at a faster speed.
             {
