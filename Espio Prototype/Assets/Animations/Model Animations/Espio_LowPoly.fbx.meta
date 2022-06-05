@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9ae7899271ae6fa479033bbf3a651fbd
+guid: bc246acfbb203754fb83034743abba64
 ModelImporter:
   serializedVersion: 21100
   internalIDToNameTable:
@@ -8,7 +8,7 @@ ModelImporter:
     second: Armature|0TPose
   - first:
       74: -8972671545321531145
-    second: Armature|Cmon_Idle
+    second: Cmon_Idle
   - first:
       74: 6881873686158965456
     second: Falling
@@ -17,10 +17,10 @@ ModelImporter:
     second: Idle
   - first:
       74: 1079665108409675491
-    second: Armature|Jump
+    second: Jump
   - first:
       74: 8948952910897673278
-    second: NinjaPose_Idle
+    second: Armature|NinjaPose_Idle
   - first:
       74: -6916701234184849179
     second: RunCycle
@@ -40,17 +40,14 @@ ModelImporter:
       74: -6519760567115542380
     second: TPose
   - first:
-      74: -8151139043290950842
-    second: Cmon_Idle
-  - first:
-      74: 5539831331247536789
-    second: Jump
+      74: 8638869969460609340
+    second: NinjaPose_Idle
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material
-    second: {fileID: 2100000, guid: f44e4fb955de12d49b00b39d0a120769, type: 2}
+    second: {fileID: 2100000, guid: 214b5df29523b4c4e90460f1033c1dcd, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -90,7 +87,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
