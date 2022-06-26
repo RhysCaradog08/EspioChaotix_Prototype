@@ -6,16 +6,15 @@ public class PlayerController : MonoBehaviour
 {
     Animator anim;
     Rigidbody rb;
-    private Vector3 moveDirection;
-
-    [Header("Spin Attack")]
-    public GameObject playerModel, spinMesh;
-    [SerializeField] float spinSpeed, chargeSpeed, spinTime, dashTime;
-    [SerializeField] bool isSpinning, chargingSpin, spinDashing;
+    CapsuleCollider capCollider;
+    [SerializeField] float capsuleStartScale, capsuleSpinScale;
 
     [Header("Movement")]
-    [SerializeField] float currentSpeed, maxSpeed, acceleration, rotateSpeed;
+    private Vector3 moveDirection;
+    [SerializeField] float /*currentSpeed,*/ maxSpeed, acceleration, rotateSpeed;
+    public float currentSpeed;
     [SerializeField] bool canMove, isSprinting, slowingDown;
+    public bool knockedBack;
 
     [Header("Jumping")]
     public Transform groundCheck;
@@ -23,26 +22,40 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float jumpForce, jumpHeight, timeToJumpApex, gravityScale, fallingGravityScale;
     [SerializeField] bool isGrounded, canPressSpace, hasJumped;
 
+    [Header("Spin Attack")]
+    [SerializeField ]Transform target;
+    Vector3 spinAttackDir;
+    public GameObject playerModel, spinMesh;
+    [SerializeField] float spinSpeed, chargeSpeed, spinTime, dashTime, attackRadius, attackSpeed;
+    [SerializeField] bool chargingSpin, spinDashing, isAttacking;
+    public bool isSpinning;
+
     private void Awake()
     {
         anim = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody>();
+        capCollider = GetComponent<CapsuleCollider>();
     }
 
     private void Start()
     {
+        capCollider.radius = capsuleStartScale;
+
         //Movement
         canMove = true;
-
-        //Spin Attack
-        spinTime = 0;
-        chargingSpin = false;
-        spinDashing = false;
+        knockedBack = false;
 
         //Jumping
         gravityScale = -(2 * jumpHeight) / Mathf.Pow(timeToJumpApex, 2);
         jumpForce = Mathf.Abs(gravityScale) * timeToJumpApex;
         canPressSpace = true;
+        hasJumped = false;
+        
+        //Spin Attack
+        spinTime = 0;
+        chargingSpin = false;
+        spinDashing = false;
+        isAttacking = false;
     }
 
     // Update is called once per frame
@@ -55,7 +68,7 @@ public class PlayerController : MonoBehaviour
             canPressSpace = true;
         }
 
-        if (slowingDown || chargingSpin) //Determine whetehr player can move via input control;
+        if (slowingDown || chargingSpin) //Determine whether player can move via input control;
         {
             canMove = false;
         }
@@ -140,7 +153,7 @@ public class PlayerController : MonoBehaviour
         {
             if (isSprinting)
             {
-                if (rb.velocity.x != 0 || rb.velocity.z != 0) //Slow change player parameters from sprinting to slowing down.
+                if (rb.velocity.x != 0 || rb.velocity.z != 0) //Slowly change player parameters from sprinting to slowing down.
                 {
                     isSprinting = false;
                     spinDashing = false;
@@ -213,6 +226,22 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        if(Input.GetKeyDown(KeyCode.Mouse0)) //Create OverlapShere to find target for player to spin attack towards.
+        {
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, attackRadius);
+            foreach (Collider hitColl in hitColliders)
+            {
+                if(hitColl.gameObject.tag == "Knockback")
+                {
+                    Debug.Log("Target in Radius");
+                    target = hitColl.gameObject.transform;
+
+                    spinAttackDir = target.position - transform.position;
+                    isAttacking = true;
+                }
+            }            
+        }
+
         if (Input.GetKeyDown(KeyCode.Mouse0) && !isSpinning) //Set player Spinning state.
         {
             if (isSprinting)
@@ -244,14 +273,15 @@ public class PlayerController : MonoBehaviour
 
         if(isSpinning) //Set player animtion state to spinning then rotate playerModel and activated spinMesh to achieve spin effect.
         {
+            capCollider.radius = capsuleSpinScale;
             anim.SetBool("Spinning", true);
             playerModel.transform.Rotate(Vector3.up, spinSpeed);
             spinMesh.SetActive(true);
             spinMesh.transform.Rotate(Vector3.up, spinSpeed);
-
         }
         else   //Reset playerModel and spinMesh  transforms to match player rotation.
         {
+            capCollider.radius = capsuleStartScale;
             anim.SetBool("Spinning", false);
             playerModel.transform.rotation = transform.rotation;
             spinMesh.SetActive(false);
@@ -269,6 +299,11 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            if(isAttacking)
+            {
+                rb.velocity = spinAttackDir * attackSpeed; //Player moves towards target being attacked.
+            }
+
             if (spinDashing)
             {
                 rb.velocity = transform.forward * (chargeSpeed + 50); //Dash in players forward vector if spin dashing.
@@ -282,7 +317,7 @@ public class PlayerController : MonoBehaviour
 
             if (isGrounded)
             {
-                rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z); //Resetes vertical velocity when grounded.
+                rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z); //Resets vertical velocity when grounded.
             }
         }
 
@@ -325,6 +360,15 @@ public class PlayerController : MonoBehaviour
     {   
         Gizmos.color = Color.red;
         Gizmos.DrawSphere(groundCheck.position, 0.5f);
+        Gizmos.DrawWireSphere(transform.position, attackRadius);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(isAttacking)
+        {
+            isAttacking = false;
+        }
     }
 }
 
