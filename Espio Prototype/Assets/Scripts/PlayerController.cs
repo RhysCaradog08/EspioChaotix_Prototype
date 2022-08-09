@@ -143,25 +143,27 @@ public class PlayerController : MonoBehaviour
 
         if (moveDirection.magnitude > Mathf.Epsilon && canMove)
         {
-            if (isGrounded)
+            if (!isAttacking)
             {
-                if (!spinDashing)
+                if (isGrounded)
                 {
-                    currentSpeed += acceleration * Time.deltaTime;  //Gradually increment player speed when not st full speed.
+                    if (!spinDashing)
+                    {
+                        currentSpeed += acceleration * Time.deltaTime;  //Gradually increment player speed when not st full speed.
+                    }
+                }
+
+                if (currentSpeed >= 100)
+                {
+                    isSprinting = true; //Player changes from running to sprinting.
+                }
+
+                if (currentSpeed >= maxSpeed)
+                {
+                    currentSpeed = maxSpeed; //Limit currentSpeed.
                 }
             }
-
-            if (currentSpeed >= 100)
-            {
-                isSprinting = true; //Player changes from running to sprinting.
-            }
-
-            if (currentSpeed >= maxSpeed)
-            {
-                currentSpeed = maxSpeed; //Limit currentSpeed.
-            }
-
-            if(isAttacking)
+            else if(isAttacking)
             {
                 currentSpeed = 0;
             }
@@ -245,11 +247,6 @@ public class PlayerController : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Mouse0)) //Create OverlapShere to find target for player to spin attack towards.
         {
-            if (canMove)
-            {
-                storeSpeed = currentSpeed;
-            }
-
             Collider[] hitColliders = Physics.OverlapSphere(transform.position, attackRadius);
             foreach (Collider hitColl in hitColliders)
             {
@@ -259,8 +256,10 @@ public class PlayerController : MonoBehaviour
                     target = hitColl.gameObject.transform;
                     spinAttackDir = target.position - transform.position;
                     isAttacking = true;
+                    //StartCoroutine(TargetAttack());
                 }
-            }            
+            }
+
         }
 
         if (Input.GetKeyDown(KeyCode.Mouse0) && !isSpinning) //Set player Spinning state.
@@ -377,7 +376,25 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse); //Force player rigidbody upwards in Y axis to simulate jumping.
     }
 
-    void OnDrawGizmos()
+    IEnumerator TargetAttack()
+    {
+        float startTime = Time.time;
+
+        new WaitForSeconds(1); //Prevents player from stacking Barges.
+
+        while (Time.time < startTime + 1)  //Player movement speed is disabled then moved by attackSpeed over 1 second;
+        {
+            isAttacking= true;
+            //trailEffect.SetActive(true);
+            currentSpeed = 0;
+
+            rb.velocity = spinAttackDir * attackSpeed; //Player moves towards target being attacked.
+
+            yield return null;
+        }
+    }
+
+        void OnDrawGizmos()
     {   
         Gizmos.color = Color.red;
         Gizmos.DrawSphere(groundCheck.position, 0.5f);
@@ -399,8 +416,6 @@ public class PlayerController : MonoBehaviour
         if(collision.gameObject.tag == "Destructible")
         {
             Destroy(collision.gameObject);
-            currentSpeed = storeSpeed;
-            storeSpeed = 0;
         }
 
         if (collision.gameObject.tag == "Knockback")
