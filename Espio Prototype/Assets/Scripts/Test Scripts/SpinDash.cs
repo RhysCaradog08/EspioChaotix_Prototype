@@ -56,11 +56,6 @@ public class SpinDash : MonoBehaviour
         }
         else isDashing = false;
 
-        /*if (Input.GetKeyUp(KeyCode.Mouse1) && dashSpeed > 0)
-        {
-            isDashing = true;
-        }*/
-
         if (isDashing)
         {
             rb.velocity = Vector3.forward * dashSpeed;

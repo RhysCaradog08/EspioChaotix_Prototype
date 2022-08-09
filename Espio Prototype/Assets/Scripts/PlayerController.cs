@@ -11,8 +11,8 @@ public class PlayerController : MonoBehaviour
 
     [Header("Movement")]
     private Vector3 moveDirection;
-    [SerializeField] float /*currentSpeed,*/ maxSpeed, acceleration, rotateSpeed;
-    public float currentSpeed;
+    [SerializeField] float maxSpeed, acceleration, currentSpeed, storeSpeed, rotateSpeed;
+    //public float currentSpeed;
     [SerializeField] bool canMove, isSprinting, slowingDown;
     public bool knockedBack;
 
@@ -29,6 +29,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float spinSpeed, chargeSpeed, spinTime, dashTime, attackRadius, attackSpeed;
     [SerializeField] bool chargingSpin, spinDashing, isAttacking;
     public bool isSpinning;
+
+    [Header("Knockback")]
+    [SerializeField] float knockbackForce, knockbackTimer;
+
 
     private void Awake()
     {
@@ -68,11 +72,20 @@ public class PlayerController : MonoBehaviour
             canPressSpace = true;
         }
 
-        if (slowingDown || chargingSpin) //Determine whether player can move via input control;
+        if (slowingDown || chargingSpin || isAttacking || knockbackTimer > 0) //Determine whether player can move via input control;
         {
             canMove = false;
         }
         else canMove = true;
+
+        if(knockbackTimer > 0)
+        {
+            knockbackTimer -= Time.deltaTime;
+        }
+        else if (knockbackTimer <= 0)
+        {
+            knockbackTimer = 0;
+        }
 
         if (isGrounded)
         {
@@ -148,6 +161,10 @@ public class PlayerController : MonoBehaviour
                 currentSpeed = maxSpeed; //Limit currentSpeed.
             }
 
+            if(isAttacking)
+            {
+                currentSpeed = 0;
+            }
         }
         else if (moveDirection.magnitude < 0.01)
         {
@@ -228,14 +245,18 @@ public class PlayerController : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Mouse0)) //Create OverlapShere to find target for player to spin attack towards.
         {
+            if (canMove)
+            {
+                storeSpeed = currentSpeed;
+            }
+
             Collider[] hitColliders = Physics.OverlapSphere(transform.position, attackRadius);
             foreach (Collider hitColl in hitColliders)
             {
-                if(hitColl.gameObject.tag == "Knockback")
+                if(hitColl.gameObject.layer == 6)
                 {
                     Debug.Log("Target in Radius");
                     target = hitColl.gameObject.transform;
-
                     spinAttackDir = target.position - transform.position;
                     isAttacking = true;
                 }
@@ -368,6 +389,45 @@ public class PlayerController : MonoBehaviour
         if(isAttacking)
         {
             isAttacking = false;
+        }
+
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Target"))
+        {
+            target = null;
+        }
+
+        if(collision.gameObject.tag == "Destructible")
+        {
+            Destroy(collision.gameObject);
+            currentSpeed = storeSpeed;
+            storeSpeed = 0;
+        }
+
+        if (collision.gameObject.tag == "Knockback")
+        {
+            Debug.Log("Collided with object");
+
+            if (isSpinning)
+            {
+                //Calculate angle between the collision point and the player.
+                ContactPoint contactPoint = collision.GetContact(0);
+                Vector3 playerPos = transform.position;
+                Vector3 dir = contactPoint.point - playerPos;
+
+                //Get the opposite (-Vector3) and normalise it.
+                dir = new Vector3(dir.x, 1, dir.z);
+                dir = -dir.normalized;
+                Debug.Log("Knockback Direction: " + dir);
+
+                rb.velocity = Vector3.zero;
+                rb.ResetCenterOfMass();
+
+                //Set knockBack while being forced back.
+                knockbackTimer = 1;
+
+                //Add force to knock player back.
+                rb.AddForce(dir * knockbackForce, ForceMode.Impulse);
+            }
         }
     }
 }
