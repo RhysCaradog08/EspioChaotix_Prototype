@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Knockback")]
     [SerializeField] float knockbackForce, knockbackTimer;
+    ContactPoint contactPoint;
 
 
     private void Awake()
@@ -166,6 +167,7 @@ public class PlayerController : MonoBehaviour
             else if(isAttacking)
             {
                 currentSpeed = 0;
+                rb.velocity = Vector3.zero;
             }
         }
         else if (moveDirection.magnitude < 0.01)
@@ -247,7 +249,7 @@ public class PlayerController : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Mouse0)) //Create OverlapShere to find target for player to spin attack towards.
         {
-            Collider[] hitColliders = Physics.OverlapSphere(transform.position, attackRadius);
+            Collider[] hitColliders = Physics.OverlapSphere(new Vector3(transform.position.x, transform.position.y, transform.position.z + attackRadius), attackRadius);
             foreach (Collider hitColl in hitColliders)
             {
                 if(hitColl.gameObject.layer == 6)
@@ -316,14 +318,10 @@ public class PlayerController : MonoBehaviour
             rb.drag = 0;
             MovePlayer();
             RotatePlayer();
+
         }
         else
         {
-            if(isAttacking)
-            {
-                rb.velocity = spinAttackDir * attackSpeed; //Player moves towards target being attacked.
-            }
-
             if (spinDashing)
             {
                 rb.velocity = transform.forward * (chargeSpeed + 50); //Dash in players forward vector if spin dashing.
@@ -339,6 +337,11 @@ public class PlayerController : MonoBehaviour
             {
                 rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z); //Resets vertical velocity when grounded.
             }
+        }
+
+        if (isAttacking)
+        {
+            rb.velocity = spinAttackDir * attackSpeed; //Player moves towards target being attacked.
         }
 
         if (isGrounded)
@@ -376,6 +379,27 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse); //Force player rigidbody upwards in Y axis to simulate jumping.
     }
 
+    void Rebound()
+    {
+        //Calculate angle between the collision point and the player.
+        Vector3 playerPos = transform.position;
+        Vector3 dir = contactPoint.point - playerPos;
+
+        //Get the opposite (-Vector3) and normalise it.
+        dir = new Vector3(dir.x, 1, dir.z);
+        dir = -dir.normalized;
+        Debug.Log("Knockback Direction: " + dir);
+
+        rb.velocity = Vector3.zero;
+        rb.ResetCenterOfMass();
+
+        //Set knockBack while being forced back.
+        knockbackTimer = 1;
+
+        //Add force to knock player back.
+        rb.AddForce(dir * knockbackForce, ForceMode.Impulse);
+    }
+
     IEnumerator TargetAttack()
     {
         float startTime = Time.time;
@@ -394,11 +418,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-        void OnDrawGizmos()
+    void OnDrawGizmos()
     {   
         Gizmos.color = Color.red;
         Gizmos.DrawSphere(groundCheck.position, 0.5f);
-        Gizmos.DrawWireSphere(transform.position, attackRadius);
+        Gizmos.DrawWireSphere(new Vector3(transform.position.x, transform.position.y, transform.position.z + attackRadius), attackRadius);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -411,6 +435,8 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Target"))
         {
             target = null;
+            ContactPoint contactPoint = collision.GetContact(0);
+            Rebound();
         }
 
         if(collision.gameObject.tag == "Destructible")
@@ -424,24 +450,7 @@ public class PlayerController : MonoBehaviour
 
             if (isSpinning)
             {
-                //Calculate angle between the collision point and the player.
-                ContactPoint contactPoint = collision.GetContact(0);
-                Vector3 playerPos = transform.position;
-                Vector3 dir = contactPoint.point - playerPos;
-
-                //Get the opposite (-Vector3) and normalise it.
-                dir = new Vector3(dir.x, 1, dir.z);
-                dir = -dir.normalized;
-                Debug.Log("Knockback Direction: " + dir);
-
-                rb.velocity = Vector3.zero;
-                rb.ResetCenterOfMass();
-
-                //Set knockBack while being forced back.
-                knockbackTimer = 1;
-
-                //Add force to knock player back.
-                rb.AddForce(dir * knockbackForce, ForceMode.Impulse);
+                
             }
         }
     }
