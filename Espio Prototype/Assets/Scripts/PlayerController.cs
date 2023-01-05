@@ -23,10 +23,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] bool isGrounded, canPressSpace, hasJumped;
 
     [Header("Spin Attack")]
-    [SerializeField ]Transform target;
+    [SerializeField] Transform target;
     Vector3 spinAttackDir;
     public GameObject playerModel, spinMesh;
-    [SerializeField] float spinSpeed, chargeSpeed, spinTime, dashTime, attackRadius, attackSpeed;
+    [SerializeField] float spinSpeed, chargeSpeed, spinTime, dashTime, attackRadius, attackSpeed, attackAgainTime;
     [SerializeField] bool chargingSpin, spinDashing, isAttacking;
     public bool isSpinning;
 
@@ -55,9 +55,11 @@ public class PlayerController : MonoBehaviour
         jumpForce = Mathf.Abs(gravityScale) * timeToJumpApex;
         canPressSpace = true;
         hasJumped = false;
-        
+
         //Spin Attack
+        target = null;
         spinTime = 0;
+        attackAgainTime = 0;
         chargingSpin = false;
         spinDashing = false;
         isAttacking = false;
@@ -86,6 +88,20 @@ public class PlayerController : MonoBehaviour
         else if (knockbackTimer <= 0)
         {
             knockbackTimer = 0;
+        }
+
+        if (attackAgainTime > 0)
+        {
+            attackAgainTime -= Time.deltaTime;
+        }
+        else if (attackAgainTime <= 0)
+        {
+            attackAgainTime = 0;
+
+            if (target != null)
+            {
+                target = null;
+            }
         }
 
         if (isGrounded)
@@ -427,30 +443,28 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(isAttacking)
+        if (isSpinning)
         {
-            isAttacking = false;
-        }
-
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Target"))
-        {
-            target = null;
-            ContactPoint contactPoint = collision.GetContact(0);
-            Rebound();
-        }
-
-        if(collision.gameObject.tag == "Destructible")
-        {
-            Destroy(collision.gameObject);
-        }
-
-        if (collision.gameObject.tag == "Knockback")
-        {
-            Debug.Log("Collided with object");
-
-            if (isSpinning)
+            if (collision.gameObject.tag == "Destructible")
             {
-                
+                Destroy(collision.gameObject);
+            }
+
+            if (collision.gameObject.layer == LayerMask.NameToLayer("Target"))
+            {
+                //Debug.Log(target.name);
+                attackAgainTime = 1;
+                ContactPoint contactPoint = collision.GetContact(0);
+
+                if (collision.gameObject.activeInHierarchy)
+                {
+                    Rebound();
+                }
+            }
+
+            if (isAttacking)
+            {
+                isAttacking = false;
             }
         }
     }
