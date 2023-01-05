@@ -452,6 +452,7 @@ MonoBehaviour:
   dashTime: 0
   attackRadius: 50
   attackSpeed: 10
+  attackAgainTime: 0
   chargingSpin: 0
   spinDashing: 0
   isAttacking: 0
