@@ -255,7 +255,7 @@ TextureImporter:
       213: 4618254946798978110
     second: Espio Sprite Sheet_83
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
@@ -272,10 +272,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -314,6 +316,8 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -329,6 +333,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -2116,9 +2132,93 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      Espio Sprite Sheet_79: 1499044787307792453
+      Espio Sprite Sheet_66: -3485572039911703967
+      Espio Sprite Sheet_28: -8043797962202003104
+      Espio Sprite Sheet_43: 6590825116769994888
+      Espio Sprite Sheet_25: 415091608917159794
+      Espio Sprite Sheet_60: 1989859049820376206
+      Espio Sprite Sheet_3: -3898163036805536117
+      Espio Sprite Sheet_12: -8159395232698792361
+      Espio Sprite Sheet_67: 8986860925030415462
+      Espio Sprite Sheet_31: -315063910280680591
+      Espio Sprite Sheet_57: 1702225511215839731
+      Espio Sprite Sheet_70: -457520546173525127
+      Espio Sprite Sheet_74: -1705713460473842808
+      Espio Sprite Sheet_76: -1280836475974474995
+      Espio Sprite Sheet_77: 3022095172051155417
+      Espio Sprite Sheet_68: -7123269282990901539
+      Espio Sprite Sheet_27: 3796884948994115058
+      Espio Sprite Sheet_65: 1834568406414192463
+      Espio Sprite Sheet_56: 3560269758445589103
+      Espio Sprite Sheet_52: 8929379779571711340
+      Espio Sprite Sheet_19: -3410634952649992073
+      Espio Sprite Sheet_18: -6612193604801871773
+      Espio Sprite Sheet_6: 2544425173035723290
+      Espio Sprite Sheet_23: 2080013597488831498
+      Espio Sprite Sheet_9: 5242157033889059593
+      Espio Sprite Sheet_55: -3325223518017032314
+      Espio Sprite Sheet_0: 7694424339277257717
+      Espio Sprite Sheet_8: 1903458843023175883
+      Espio Sprite Sheet_42: 4286968699392984541
+      Espio Sprite Sheet_22: 6894598997054810181
+      Espio Sprite Sheet_16: 5951461669376189515
+      Espio Sprite Sheet_46: 6971312471002683951
+      Espio Sprite Sheet_53: 3304998608363794438
+      Espio Sprite Sheet_62: -590217728851256601
+      Espio Sprite Sheet_81: -1859929285213723711
+      Espio Sprite Sheet_1: 6863924024927656552
+      Espio Sprite Sheet_48: -5635656690226138133
+      Espio Sprite Sheet_50: -4631008089102968571
+      Espio Sprite Sheet_72: -949900363877507373
+      Espio Sprite Sheet_58: 8789410253164371006
+      Espio Sprite Sheet_5: -2517476503613482987
+      Espio Sprite Sheet_17: -1271961772208480604
+      Espio Sprite Sheet_47: -6326967559973376118
+      Espio Sprite Sheet_24: -9078372292588751625
+      Espio Sprite Sheet_13: 7242377794573053841
+      Espio Sprite Sheet_21: -1154339115309757163
+      Espio Sprite Sheet_69: -3564623177023069068
+      Espio Sprite Sheet_83: 4618254946798978110
+      Espio Sprite Sheet_30: 8462113067920285210
+      Espio Sprite Sheet_34: 8316874423306329346
+      Espio Sprite Sheet_4: 8716292352400463357
+      Espio Sprite Sheet_73: -183651202224776498
+      Espio Sprite Sheet_40: 4365544081104906338
+      Espio Sprite Sheet_64: -215717895828572283
+      Espio Sprite Sheet_80: -2360434101600693933
+      Espio Sprite Sheet_20: -887722268727979453
+      Espio Sprite Sheet_59: -2368278835744321264
+      Espio Sprite Sheet_71: 6590243367732172182
+      Espio Sprite Sheet_51: 3369191702918765096
+      Espio Sprite Sheet_61: -1813163612606013085
+      Espio Sprite Sheet_45: 577036418214838081
+      Espio Sprite Sheet_7: 6035094764655207640
+      Espio Sprite Sheet_38: -4001031098494136971
+      Espio Sprite Sheet_11: 8042845591037321346
+      Espio Sprite Sheet_14: 7331577625049319913
+      Espio Sprite Sheet_78: -4734886333114684719
+      Espio Sprite Sheet_35: -3450025005525760032
+      Espio Sprite Sheet_44: -4470371467874693789
+      Espio Sprite Sheet_10: 5586502582627836143
+      Espio Sprite Sheet_54: 1791856910526755495
+      Espio Sprite Sheet_63: -4633629312733999126
+      Espio Sprite Sheet_36: 8436704975921537384
+      Espio Sprite Sheet_75: -2151500526367220718
+      Espio Sprite Sheet_32: 8657409499809047937
+      Espio Sprite Sheet_82: -2365648841306752816
+      Espio Sprite Sheet_15: -770651187263209209
+      Espio Sprite Sheet_29: 3131053533399579288
+      Espio Sprite Sheet_41: 4072200146174361878
+      Espio Sprite Sheet_26: 7360912134436103778
+      Espio Sprite Sheet_49: 3785164029935867664
+      Espio Sprite Sheet_37: 5651402457797544417
+      Espio Sprite Sheet_2: 4658007781803097656
+      Espio Sprite Sheet_33: -5477301288406791822
+      Espio Sprite Sheet_39: 2846045398276308982
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
