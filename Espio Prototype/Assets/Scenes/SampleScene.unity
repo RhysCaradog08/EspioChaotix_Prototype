@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 322dbb92a25c99c46bc60e2bf1a55190, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1417271509}
+  target: {fileID: 609808091}
   OrbitSpeed: 20
 --- !u!1 &122427883
 GameObject:
@@ -329,6 +329,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Destructible Cube (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 5226767230821831743, guid: 18d26f32c8d0bdc48becc6d3b70b8862, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5226767230821831743, guid: 18d26f32c8d0bdc48becc6d3b70b8862, type: 3}
+      propertyPath: m_TagString
+      value: Target
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -490,9 +498,9 @@ MonoBehaviour:
   isGrounded: 0
   canPressSpace: 0
   hasJumped: 0
-  target: {fileID: 0}
   playerModel: {fileID: 1933204330}
   spinMesh: {fileID: 1683865615}
+  target: {fileID: 609808091}
   spinSpeed: 10
   chargeSpeed: 0
   spinTime: 0
@@ -810,6 +818,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Destructible Cube (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 5226767230821831743, guid: 18d26f32c8d0bdc48becc6d3b70b8862, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5226767230821831743, guid: 18d26f32c8d0bdc48becc6d3b70b8862, type: 3}
+      propertyPath: m_TagString
+      value: Target
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -969,6 +985,14 @@ PrefabInstance:
     - target: {fileID: 5226767230821831743, guid: 18d26f32c8d0bdc48becc6d3b70b8862, type: 3}
       propertyPath: m_Name
       value: Destructible Cube (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5226767230821831743, guid: 18d26f32c8d0bdc48becc6d3b70b8862, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5226767230821831743, guid: 18d26f32c8d0bdc48becc6d3b70b8862, type: 3}
+      propertyPath: m_TagString
+      value: Target
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1158,6 +1182,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Destructible Cube (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5226767230821831743, guid: 18d26f32c8d0bdc48becc6d3b70b8862, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5226767230821831743, guid: 18d26f32c8d0bdc48becc6d3b70b8862, type: 3}
+      propertyPath: m_TagString
+      value: Target
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1204,11 +1236,6 @@ Transform:
   m_Father: {fileID: 345036754}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1417271509 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3697621441716217536, guid: 50f5a2056f855bb4eb4c1995ac276e27, type: 3}
-  m_PrefabInstance: {fileID: 3697621442314373146}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1430176464
 GameObject:
   m_ObjectHideFlags: 0
@@ -1801,6 +1828,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TotemPole
       objectReference: {fileID: 0}
+    - target: {fileID: 3697621441716217536, guid: 50f5a2056f855bb4eb4c1995ac276e27, type: 3}
+      propertyPath: m_TagString
+      value: Target
+      objectReference: {fileID: 0}
     - target: {fileID: 3697621441716217537, guid: 50f5a2056f855bb4eb4c1995ac276e27, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1909,6 +1940,14 @@ PrefabInstance:
     - target: {fileID: 5226767230821831743, guid: 18d26f32c8d0bdc48becc6d3b70b8862, type: 3}
       propertyPath: m_Name
       value: Destructible Cube
+      objectReference: {fileID: 0}
+    - target: {fileID: 5226767230821831743, guid: 18d26f32c8d0bdc48becc6d3b70b8862, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5226767230821831743, guid: 18d26f32c8d0bdc48becc6d3b70b8862, type: 3}
+      propertyPath: m_TagString
+      value: Target
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

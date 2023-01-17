@@ -23,9 +23,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] bool isGrounded, canPressSpace, hasJumped;
 
     [Header("Spin Attack")]
-    [SerializeField] public Transform target;
     Vector3 spinAttackDir, targetPos;
     public GameObject playerModel, spinMesh;
+    public Transform target;
     [SerializeField] float spinSpeed, chargeSpeed, spinTime, dashTime, attackRadius, attackSpeed, attackAgainTime, orbitSpeed;
     [SerializeField] bool chargingSpin, spinDashing, isAttacking;
     public bool isSpinning;
@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
         hasJumped = false;
 
         //Spin Attack
-        target = null;
+        //target = null;
         spinTime = 0;
         attackAgainTime = 0;
         chargingSpin = false;
@@ -272,13 +272,15 @@ public class PlayerController : MonoBehaviour
             Collider[] hitColliders = Physics.OverlapSphere(new Vector3(transform.position.x, transform.position.y, transform.position.z + attackRadius), attackRadius);
             foreach (Collider hitColl in hitColliders)
             {
-                if(hitColl.gameObject.layer == 6)
+                if(hitColl.gameObject.tag == "Target")
                 {
                     Debug.Log("Target in Radius");
                     target = hitColl.gameObject.transform;
                     targetPos = new Vector3(target.position.x, transform.position.y, target.position.z);
                     spinAttackDir = targetPos - transform.position;
                     isAttacking = true;
+
+                    rb.velocity = Vector3.zero;
                 }
             }
 
@@ -438,13 +440,13 @@ public class PlayerController : MonoBehaviour
     {
         if (isSpinning)
         {
-            if (collision.gameObject.tag == "Destructible")
+            if (collision.gameObject.layer == 7)
             {
                 Destroy(collision.gameObject);
                 target = null;
             }
 
-            if (collision.gameObject.layer == LayerMask.NameToLayer("Target"))
+            if (collision.gameObject.layer == 6)
             {
                 ContactPoint contactPoint = collision.GetContact(0);
 
