@@ -6,7 +6,7 @@ public class Knockback : MonoBehaviour
 {
     PlayerController pc;
     Rigidbody rb;
-    [SerializeField] float playerSpeed, knockbackForce;
+    [SerializeField] float knockbackForce;
 
     private void Awake()
     {

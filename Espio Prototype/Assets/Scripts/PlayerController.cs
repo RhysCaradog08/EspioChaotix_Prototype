@@ -23,16 +23,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] bool isGrounded, canPressSpace, hasJumped;
 
     [Header("Spin Attack")]
-    [SerializeField] Transform target;
-    Vector3 spinAttackDir;
+    [SerializeField] public Transform target;
+    Vector3 spinAttackDir, targetPos;
     public GameObject playerModel, spinMesh;
-    [SerializeField] float spinSpeed, chargeSpeed, spinTime, dashTime, attackRadius, attackSpeed, attackAgainTime;
+    [SerializeField] float spinSpeed, chargeSpeed, spinTime, dashTime, attackRadius, attackSpeed, attackAgainTime, orbitSpeed;
     [SerializeField] bool chargingSpin, spinDashing, isAttacking;
     public bool isSpinning;
 
     [Header("Knockback")]
-    [SerializeField] float knockbackForce, knockbackTimer;
+    [SerializeField] float knockbackForce;
     ContactPoint contactPoint;
+    public bool isKnockedBack;
 
 
     private void Awake()
@@ -63,11 +64,19 @@ public class PlayerController : MonoBehaviour
         chargingSpin = false;
         spinDashing = false;
         isAttacking = false;
+
+        //Knockback
+        isKnockedBack = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(target != null)
+        {
+            Debug.Log("Target: " + target.name);
+        }
+
         isGrounded = Physics.CheckSphere(groundCheck.position, 0.5f, ground); //CheckSphere to determine if gorunded.
 
         if (Input.GetKeyUp(KeyCode.Space) && !hasJumped) //Check to stop infinite jumping.
@@ -75,33 +84,28 @@ public class PlayerController : MonoBehaviour
             canPressSpace = true;
         }
 
-        if (slowingDown || chargingSpin || isAttacking || knockbackTimer > 0) //Determine whether player can move via input control;
+        if (slowingDown || chargingSpin || isAttacking) //Determine whether player can move via input control;
         {
             canMove = false;
         }
         else canMove = true;
 
-        if(knockbackTimer > 0)
-        {
-            knockbackTimer -= Time.deltaTime;
-        }
-        else if (knockbackTimer <= 0)
-        {
-            knockbackTimer = 0;
-        }
-
         if (attackAgainTime > 0)
         {
             attackAgainTime -= Time.deltaTime;
+
+            float rotateClockwise = Input.GetAxis("Horizontal") * -orbitSpeed;
+            transform.RotateAround(target.transform.position, Vector3.up, rotateClockwise * Time.deltaTime);
+
         }
         else if (attackAgainTime <= 0)
         {
-            attackAgainTime = 0;
-
             if (target != null)
             {
                 target = null;
             }
+
+            attackAgainTime = 0;
         }
 
         if (isGrounded)
@@ -272,25 +276,24 @@ public class PlayerController : MonoBehaviour
                 {
                     Debug.Log("Target in Radius");
                     target = hitColl.gameObject.transform;
-                    spinAttackDir = target.position - transform.position;
+                    targetPos = new Vector3(target.position.x, transform.position.y, target.position.z);
+                    spinAttackDir = targetPos - transform.position;
                     isAttacking = true;
-                    //StartCoroutine(TargetAttack());
                 }
             }
 
-        }
-
-        if (Input.GetKeyDown(KeyCode.Mouse0) && !isSpinning) //Set player Spinning state.
-        {
-            if (isSprinting)
+            if(!isSpinning)
             {
-                isSpinning = true;
-            }
-            else
-            {
-                if (!slowingDown)
+                if (isSprinting)
                 {
-                    spinTime = 0.5f;
+                    isSpinning = true;
+                }
+                else
+                {
+                    if (!slowingDown)
+                    {
+                        spinTime = 0.5f;
+                    }
                 }
             }
         }
@@ -334,7 +337,6 @@ public class PlayerController : MonoBehaviour
             rb.drag = 0;
             MovePlayer();
             RotatePlayer();
-
         }
         else
         {
@@ -353,11 +355,17 @@ public class PlayerController : MonoBehaviour
             {
                 rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z); //Resets vertical velocity when grounded.
             }
-        }
 
-        if (isAttacking)
-        {
-            rb.velocity = spinAttackDir * attackSpeed; //Player moves towards target being attacked.
+            if (isAttacking)
+            {
+                rb.velocity = spinAttackDir * attackSpeed; //Player moves towards target being attacked.
+            }
+
+            if (isKnockedBack)
+            {
+                rb.velocity = Vector3.zero;
+                rb.ResetCenterOfMass();
+            }
         }
 
         if (isGrounded)
@@ -398,8 +406,7 @@ public class PlayerController : MonoBehaviour
     void Rebound()
     {
         //Calculate angle between the collision point and the player.
-        Vector3 playerPos = transform.position;
-        Vector3 dir = contactPoint.point - playerPos;
+        Vector3 dir = contactPoint.point - transform.position;
 
         //Get the opposite (-Vector3) and normalise it.
         dir = new Vector3(dir.x, 1, dir.z);
@@ -409,36 +416,22 @@ public class PlayerController : MonoBehaviour
         rb.velocity = Vector3.zero;
         rb.ResetCenterOfMass();
 
-        //Set knockBack while being forced back.
-        knockbackTimer = 1;
-
         //Add force to knock player back.
         rb.AddForce(dir * knockbackForce, ForceMode.Impulse);
     }
 
-    IEnumerator TargetAttack()
+    void CreateTargetRadiusBounds()
     {
-        float startTime = Time.time;
+        float radius = 400; //radius of target
+        Vector3 centerPosition = target.localPosition; //center of target radius
+        float distance = Vector3.Distance(transform.position, centerPosition); //distance from player to target
 
-        new WaitForSeconds(1); //Prevents player from stacking Barges.
-
-        while (Time.time < startTime + 1)  //Player movement speed is disabled then moved by attackSpeed over 1 second;
+        if (distance > radius) //If the distance is less than the radius, it is already within the radius.
         {
-            isAttacking= true;
-            //trailEffect.SetActive(true);
-            currentSpeed = 0;
-
-            rb.velocity = spinAttackDir * attackSpeed; //Player moves towards target being attacked.
-
-            yield return null;
+            Vector3 fromOriginToObject = transform.position - centerPosition; //player - target
+            fromOriginToObject *= radius / distance; //Multiply by radius //Divide by Distance
+            transform.position = centerPosition + fromOriginToObject; //target + all that Math
         }
-    }
-
-    void OnDrawGizmos()
-    {   
-        Gizmos.color = Color.red;
-        Gizmos.DrawSphere(groundCheck.position, 0.5f);
-        Gizmos.DrawWireSphere(new Vector3(transform.position.x, transform.position.y, transform.position.z + attackRadius), attackRadius);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -448,16 +441,16 @@ public class PlayerController : MonoBehaviour
             if (collision.gameObject.tag == "Destructible")
             {
                 Destroy(collision.gameObject);
+                target = null;
             }
 
             if (collision.gameObject.layer == LayerMask.NameToLayer("Target"))
             {
-                //Debug.Log(target.name);
-                attackAgainTime = 1;
                 ContactPoint contactPoint = collision.GetContact(0);
 
                 if (collision.gameObject.activeInHierarchy)
                 {
+                    //attackAgainTime = 1;
                     Rebound();
                 }
             }
@@ -467,6 +460,13 @@ public class PlayerController : MonoBehaviour
                 isAttacking = false;
             }
         }
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(groundCheck.position, 0.5f);
+        Gizmos.DrawWireSphere(new Vector3(transform.position.x, transform.position.y, transform.position.z + attackRadius), attackRadius);
     }
 }
 
